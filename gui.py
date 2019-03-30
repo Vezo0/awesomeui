@@ -1,214 +1,138 @@
 from tkinter import *
 
-tg = 0
-l = []
-l.append("sex")
+def click():
+    global state, diction_sex, diction_femalechest, diction_femaleintimate, diction_head, diction_main, diction_malechest, diction_maleintimate
+    if state == 0:
+        button_1.configure(text=diction_sex[1],background='black')
+        button_2.configure(text=diction_sex[2],background='black')
+        button_3.configure(text=diction_sex[1],background='turquoise')
+        button_4.configure(text=diction_sex[1],background='turquoise')
+        button_5.configure(text=diction_sex[1],background='turquoise')
+        button_6.configure(text=diction_sex[1],background='turquoise')
+        button_7.configure(text=diction_sex[1],background='turquoise')
+        state = 1
+    elif state == 1:
+        button_1.configure(text=diction_main[1], background='black',fg='red')
+        button_2.configure(text=diction_main[2],background='black',fg='red')
+        button_3.configure(text=diction_main[3],background='black',fg='red')
+        button_4.configure(text=diction_main[4],background='black',fg='red')
+        button_5.configure(text=diction_main[5],background='black',fg='red')
+        button_6.configure(text=diction_main[6],background='black',fg='red')
+        button_7.configure(text=diction_main[7],background='black',fg='red')
+        state=2
+    elif state == 2:
+        button_1.configure(text=diction_head[1], background='black',fg='red')
+        button_2.configure(text=diction_head[2],background='black',fg='red')
+        button_3.configure(text=diction_head[3],background='black',fg='red')
+        button_4.configure(text=diction_head[4],background='black',fg='red')
+        button_5.configure(text=diction_head[5],background='black',fg='red')
+        button_6.configure(text=diction_head[6],background='black',fg='red')
+        button_7.configure(text=diction_head[7],background='black',fg='red')
 
-def OnButtonClick(theGrid, button_id):
-    #sex
-    if button_id == 1 and l[0] == "sex":
-        l[0] = "male"
-        l.append("malefemale")
-        theGrid.pack_forget()
-    elif button_id == 2 and l[0] == "sex":
-        l[0] = "female"
-        l.append("malefemale")
-        theGrid.pack_forget()
+def buttons(root):
+    global state, button_1, button_2, button_3, button_4,button_5,button_6,button_7,diction_sex, diction_femalechest, diction_femaleintimate, diction_head, diction_main, diction_malechest, diction_maleintimate
+    fr1 = Frame(root)
+    fr1.pack(side=LEFT)
+    if state == 0:
+        button_1 = Button(fr1,text=diction_sex[1], command=click)
+        button_2 = Button(fr1,text=diction_sex[2], command=click)
+        button_3 = Button(fr1,text=diction_sex[1], command=click)
+        button_4 = Button(fr1,text=diction_sex[2], command=click)
+        button_5 = Button(fr1,text=diction_sex[1], command=click)
+        button_6 = Button(fr1,text=diction_sex[2], command=click)
+        button_7 = Button(fr1,text=diction_sex[1], command=click)
+        button_1.pack()
+        button_2.pack()
+        button_3.pack()
+        button_4.pack()
+        button_5.pack()
+        button_6.pack()
+        button_7.pack()
+        
+    elif state == 1:
+        button_1 = Button(fr1,text=diction_main[1], command=click)
+        button_2 = Button(fr1,text=diction_main[2], command=click)
+        button_3 = Button(fr1,text=diction_main[3], command=click)
+        button_4 = Button(fr1,text=diction_main[4], command=click)
+        button_5 = Button(fr1,text=diction_main[5], command=click)
+        button_6 = Button(fr1,text=diction_main[6], command=click)
+        button_7 = Button(fr1,text=diction_main[7], command=click)
+        button_1.pack()
+        button_2.pack()
+        button_3.pack()
+        button_4.pack()
+        button_5.pack()
+        button_6.pack()
+        button_7.pack()
+        
     #head
-    elif button_id == 1 and l[-1] == "malefemale":
-        l.append("malefemalehead")
-        theGrid.pack_forget()
-    elif button_id == 1 and l[-1] == "malefemalehead":
-        tg = 1
-        theGrid.pack_forget()
-    elif button_id == 2 and l[-1] == "malefemalehead":
-        tg = 1
-        theGrid.pack_forget()
-    elif button_id == 3 and l[-1] == "malefemalehead":
-        tg = 1
-        theGrid.pack_forget()
-    elif button_id == 4 and l[-1] == "malefemalehead":
-        tg = 1
-        theGrid.pack_forget()
-    elif button_id == 5 and l[-1] == "malefemalehead":
-        tg = 1
-        theGrid.pack_forget()
-    elif button_id == 6 and l[-1] == "malefemalehead":
-        tg = 1
-        theGrid.pack_forget()
-    #malechest
-    elif button_id == 2 and l[0] == "male":
-        l.append("malechest")
-        theGrid.pack_forget()
-    elif button_id == 1 and l[-1] == "malechest":
-        tg = 1
-        theGrid.pack_forget()
-    elif button_id == 2 and l[-1] == "malechest":
-        tg = 1
-        theGrid.pack_forget()
-    elif button_id == 3 and l[-1] == "malechest":
-        tg = 1
-        theGrid.pack_forget()
-    #femalechest
-    elif button_id == 2 and l[0] == "female":
-        l.append("femalechest")
-        theGrid.pack_forget()
-    elif button_id == 1 and l[-1] == "femalechest":
-        tg = 1
-        theGrid.pack_forget()
-    elif button_id == 2 and l[-1] == "femalechest":
-        tg = 1
-        theGrid.pack_forget()
-    elif button_id == 3 and l[-1] == "femalechest":
-        tg = 1
-        theGrid.pack_forget()
-    elif button_id == 4 and l[-1] == "femalechest":
-        tg = 1
-        theGrid.pack_forget()
-    #hands
-    elif button_id == 3 and l[0] == "male":
-        tg = 1
-        theGrid.pack_forget()
-    elif button_id == 3 and l[0] == "female":
-        tg = 1
-        theGrid.pack_forget()
-    #legs
-    elif button_id == 4 and l[0] == "male":
-        tg = 1
-        theGrid.pack_forget()
-    elif button_id == 4 and l[0] == "female":
-        tg = 1
-        theGrid.pack_forget()
-    #stomach
-    elif button_id == 5 and l[0] == "male":
-        tg = 1
-        theGrid.pack_forget()
-    elif button_id == 5 and l[0] == "female":
-        tg = 1
-        theGrid.pack_forget()
-    #intimate zones (M)
-    elif button_id == 6 and l[0] == "male":
-        l.append("maleintimate")
-        theGrid.pack_forget()
-    elif button_id == 1 and l[-1] == "maleintimate":
-        tg = 1
-        theGrid.pack_forget()
-    elif button_id == 2 and l[-1] == "maleintimate":
-        tg = 1
-        theGrid.pack_forget()
-    #intimate zones (M)
-    elif button_id == 6 and l[0] == "female":
-        l.append("femaleintimate")
-        theGrid.pack_forget()
-    elif button_id == 1 and l[-1] == "femaleintimate":
-        tg = 1
-        theGrid.pack_forget()
-    elif button_id == 2 and l[-1] == "femaleintimate":
-        tg = 1   
-        theGrid.pack_forget()
-    #back
-    elif button_id == 7 and l[-1] == "malefemale":
-        del l[-1]
-        theGrid.pack_forget()
-    elif button_id == 7 and l[-1] == "malefemalehead":
-        del l[-1]
-        theGrid.pack_forget()
-    elif button_id == 7 and l[-1] == "malechest":
-        del l[-1]
-        theGrid.pack_forget()
-    elif button_id == 7 and l[-1] == "femalechest":
-        del l[-1]
-        theGrid.pack_forget()
-    elif button_id == 7 and l[-1] == "maleintimate":
-        del l[-1]
-        theGrid.pack_forget()
-    elif button_id == 7 and l[-1] == "femaleintimate":
-        del l[-1]
-        theGrid.pack_forget()
+    elif state == 2:
+        button_1 = Button(fr1,text=diction_head[1], command=click)
+        button_2 = Button(fr1,text=diction_head[2], command=click)
+        button_3 = Button(fr1,text=diction_head[3], command=click)
+        button_4 = Button(fr1,text=diction_head[4], command=click)
+        button_5 = Button(fr1,text=diction_head[5], command=click)
+        button_6 = Button(fr1,text=diction_head[6], command=click)
+        button_7 = Button(fr1,text=diction_head[7], command=click)
+        button_1.pack()
+        button_2.pack()
+        button_3.pack()
+        button_4.pack()
+        button_5.pack()
+        button_6.pack()
+        button_7.pack()
 
-        
+if __name__ == "__main__":
+    global state, diction_sex, diction_main, diction_head, diction_malechest, diction_femalechest, diction_maleintimate, diction_femaleintimate
+    state = 0
 
-def createButtons(s, theGrid):
-    if s is "sex":
-        
-        b1 = Button(theGrid, text="Male",padx=20,pady=20, fg="black", command=lambda: OnButtonClick(theGrid,1))
-        b1.pack(side=LEFT)
-        b2 = Button(theGrid, text="Female",padx=20,pady=20, fg="black", command=lambda: OnButtonClick(theGrid,2))
-        b2.pack(side=LEFT)
-        
-    elif s is "malefemale":
-        b1 = Button(theGrid, text="Head",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,1)).grid(row=0,column=0)
-        b1.pack(side=LEFT)
-        b2 = Button(theGrid, text="Chest",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,2)).grid(row=1,column=0)
-        b2.pack(side=LEFT)
-        b3=Button(theGrid, text="Hands",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,3)).grid(row=2,column=0)
-        b3.pack(side=LEFT)
-        b4=Button(theGrid, text="Legs",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,4)).grid(row=3,column=0)
-        b4.pack(side=LEFT)
-        b5=Button(theGrid, text="Stomach",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,5)).grid(row=4,column=0)
-        b5.pack(side=LEFT)
-        b6=Button(theGrid, text="Intimate zones",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,6)).grid(row=5,column=0)
-        b6.pack(side=LEFT)
-        b7=Button(theGrid, text="Back",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,7))
-        b7.pack(side=LEFT)
-    elif s is "malefemalehead":
-        b1=Button(theGrid, text="Forehead",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,1)).grid(row=0,column=0) #hir
-        b1.pack(side=LEFT)
-        b2=Button(theGrid, text="Nose",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,2)).grid(row=1,column=0) #lor
-        b2.pack(side=LEFT)
-        b3=Button(theGrid, text="Ears",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,3)).grid(row=2,column=0) #lor
-        b3.pack(side=LEFT)
-        b4=Button(theGrid, text="Teeth",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,4)).grid(row=3,column=0) #st
-        b4.pack(side=LEFT)
-        b5=Button(theGrid, text="Neck",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,5)).grid(row=4,column=0) #lor
-        b5.pack(side=LEFT)
-        b6=Button(theGrid, text="Eyes",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,6)).grid(row=5,column=0) #ok
-        b6.pack(side=LEFT)
-        b7=Button(theGrid, text="Back",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,7)).grid(row=6,column=0)
-        b7.pack(side=LEFT)
-    elif s is "malechest":
-        b1=Button(theGrid, text="Heart",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,1)).grid(row=0,column=0) #card
-        b1.pack(side=LEFT)
-        b2=Button(theGrid, text="Lungs",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,2)).grid(row=1,column=0) #hir
-        b2.pack(side=LEFT)
-        b3=Button(theGrid, text="Gullet",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,3)).grid(row=2,column=0) #hir
-        b3.pack(side=LEFT)
-        b4=Button(theGrid, text="Back",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,7)).grid(row=3,column=0)
-        b4.pack(side=LEFT)
-    elif s is "femalechest":
-        b1=Button(theGrid, text="Heart",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,1)).grid(row=0,column=0) #card
-        b1.pack(side=LEFT)
-        b2=Button(theGrid, text="Lungs",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,2)).grid(row=1,column=0) #hir
-        b2.pack(side=LEFT)
-        b3=Button(theGrid, text="Gullet",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,3)).grid(row=2,column=0) #hir
-        b3.pack(side=LEFT)
-        b4=Button(theGrid, text="Breast",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,4)).grid(row=3,column=0)  #mom
-        b4.pack(side=LEFT)
-        b5=Button(theGrid, text="Back",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,7)).grid(row=4,column=0)
-        b5.pack(side=LEFT)
-    elif s is "maleintimate":
-        b1=Button(theGrid, text="Penis",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,1)).grid(row=0,column=0) #ur
-        b1.pack(side=LEFT)
-        b2=Button(theGrid, text="Butt",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,2)).grid(row=1,column=0) #pr
-        b2.pack(side=LEFT)
-        b3=Button(theGrid, text="Back",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,7)).grid(row=2,column=0)
-        b3.pack(side=LEFT)
-    elif s is "femaleintimate":
-        b1=Button(theGrid, text="Vagina",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,1)).grid(row=0,column=0) #vin
-        b1.pack(side=LEFT)
-        b2=Button(theGrid, text="Butt",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,2)).grid(row=1,column=0) #pr
-        b2.pack(side=LEFT)
-        b3=Button(theGrid, text="Back",padx=20,pady=20, fg="black",command=lambda: OnButtonClick(theGrid,7)).grid(row=2,column=0)
-        b3.pack(side=LEFT)
-    
-
+    diction_sex = {
+    1:"Male",
+    2:"Female",
+}
+    diction_main = {
+    1:"Head",
+    2:"Chest",
+    3:"Hands",
+    4:"Legs",
+    5:"Stomach",
+    6:"Intimate zones",
+    7:"Back",
+}
+    diction_head = {
+    1:"Forehead",
+    2:"Nose",
+    3:"Ears",
+    4:"Teeth",
+    5:"Neck",
+    6:"Eyes",
+    7:"Back",
+}
+    diction_malechest = {
+    1:"Heart",
+    2:"Lungs",
+    3:"Gullet",
+    4:"Back",
+}
+    diction_femalechest = {
+    1:"Heart",
+    2:"Lungs",
+    3:"Gullet",
+    4:"Breast",
+    5:"Back",
+}
+    diction_maleintimate = {
+    1:"Penis",
+    2:"Butt",
+    3:"Back",
+}
+    diction_femaleintimate = {
+    1:"Vagina",
+    2:"Butt",
+    3:"Back",
+}
 
 root = Tk()
-root.title("Hack2019")
-while tg is not 1:
-    f = Frame(root, height=32, width=32)
-    f.pack_propagate(0)
-    f.pack()
-    createButtons(l[-1], f)
-    root.mainloop()
+buttons(root)
+click()
 root.mainloop()
