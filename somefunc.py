@@ -10,7 +10,9 @@ sex = 'Choose your sex'
 
 segment = 'Which segment of body do you want to inspect?'
 
-part = 'What exactly do you want to inspect?'
+part = 'Which part of it do you want to inspect?'
+
+exact = 'What exactly do you want to inspect?'
 
 surgeon = 'You should go to surgeon. Please, select a suitable day and time for yourself.'
 
@@ -48,7 +50,7 @@ while True:
     if ex == 1:
         break
     
-    print(part)
+    print(exact)
     enter = input()
     a.append(enter)
     if a == ['male','head', 'forehead'] or a == ['female', 'head', 'forehead']:
@@ -72,7 +74,7 @@ while True:
     elif a == ['female', 'chest', 'breast']:
         print(mammologist)
         ex = 1
-    if ex == 1 :
+    if ex == 1:
         break
 
     print(part)
@@ -86,23 +88,6 @@ while True:
         ex = 1
     elif a == ['female', 'chest', 'gullet', 'vagina']:
         print(venerologist)
-<<<<<<< HEAD
-#####        
-nex(enter, sex)
-
-
-nex(enter, segment)
-if a == [1, 3] or a == [1, 4] or a == [2, 3] or a == [2, 4]:
-    print(surgeon)
-
-nex(enter, part)
-
-nex2(enter)
-
-nex3(enter)
-=======
         ex = 1
     if ex == 1:
         break
-        
->>>>>>> 7364a7282b740f1b7354388c24cec8a1a95ed29e
