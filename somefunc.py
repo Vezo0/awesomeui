@@ -1,7 +1,11 @@
 #variables
+
 a = []
 enter = ''
+ex = ''
+
 #title text
+
 sex = 'Choose your sex'
 
 segment = 'Which segment of body do you want to inspect?'
@@ -25,46 +29,64 @@ urologist = 'You should go to urologist. Please, select a suitable day and time 
 proctologist = 'You should go to proctologist. Please, select a suitable day and time for yourself.'
 
 venerologist = 'You should go to venerologist. Please, select a suitable day and time for yourself.'
-
-#functions
-def nex(x, title):
-    print(title)
-    a.append(x)
-
-def nex2(x):
-    a.append(x)
-    if a == [1, 1, 1] or a == [2, 1, 1]:
-        print(surgeon)
-    elif a == [1, 1, 2] or a == [2, 1, 2]:
-        print(therapist)
-    elif a == [1, 1, 3] or a == [2, 1, 3]:
-        print(stomatologist)
-    elif a == [1, 1, 4] or a == [2, 1, 4]:
-        print(ophthalmologist)
-    elif a == [1, 2, 1] or a == [2, 2, 1]:
-        print(cardiologist)
-    elif a == [1, 2, 2] or a == [2, 2, 2]:
-        print(surgeon)
-    elif a == [2, 2, 3]:
-        print(mammologist)
-        
-def nex3(x):
-    a.append(x)
-    if a == [1, 2, 2, 1]:
-        print(urologist)
-    elif a == [1, 2, 2, 2] or [2, 2, 2, 2]:
-        print(proctologist)
-    elif a == [2, 2, 2, 1]:
-        print(venerologist)
+       
 #####        
-nex(enter, sex)
+        
+while True:
 
-nex(enter, segment)
-if a == [1, 3] or a == [1, 4] or a == [2, 3] or a == [2, 4]:
-    print(surgeon)
+    print(sex)
+    enter = input()
+    a.append(enter)
+    
 
-nex(enter, part)
+    print(segment)
+    enter = input()
+    a.append(enter)
+    if a == ['male', 'hands'] or a == ['male', 'legs'] or a == ['female', 'hands'] or a == ['female', 'legs']:
+        print(surgeon)
+        ex = 1
+    if ex == 1:
+        break
+    
+    print(part)
+    enter = input()
+    a.append(enter)
+    if a == ['male','head', 'forehead'] or a == ['female', 'head', 'forehead']:
+        print(surgeon)
+        ex = 1
+    elif a == ['male', 'head', 'nose_ears_throat'] or a == ['female', 'head', 'nose_ears_throat']:
+        print(therapist)
+        ex = 1
+    elif a == ['male', 'head', 'teeth'] or a == ['female', 'head', 'teeth']:
+        print(stomatologist)
+        ex = 1
+    elif a == ['male', 'head', 'eyes'] or a == ['female', 'head', 'eyes']:
+        print(ophthalmologist)
+        ex = 1
+    elif a == ['male', 'chest', 'heart'] or a == ['female', 'chest', 'heart']:
+        print(cardiologist)
+        ex = 1
+    elif a == ['male', 'chest', 'lungs'] or a == ['female', 'chest', 'lungs']:
+        print(surgeon)
+        ex = 1
+    elif a == ['female', 'chest', 'breast']:
+        print(mammologist)
+        ex = 1
+    if ex == 1 :
+        break
 
-nex2(enter)
-
-nex3(enter)
+    print(part)
+    enter = input()
+    a.append(enter)
+    if a == ['male', 'chest', 'gullet', 'penis']:
+        print(urologist)
+        ex = 1
+    elif a == ['male', 'chest', 'gullet', 'butt'] or ['female', 'chest', 'gullet', 'butt']:
+        print(proctologist)
+        ex = 1
+    elif a == ['female', 'chest', 'gullet', 'vagina']:
+        print(venerologist)
+        ex = 1
+    if ex == 1:
+        break
+        
