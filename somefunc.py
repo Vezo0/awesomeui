@@ -59,6 +59,7 @@ def nex3(x):
 #####        
 nex(enter, sex)
 
+
 nex(enter, segment)
 if a == [1, 3] or a == [1, 4] or a == [2, 3] or a == [2, 4]:
     print(surgeon)
