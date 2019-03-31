@@ -222,7 +222,7 @@ def buttons(root):
         button_5 = Button(fr1,width=70,height=7,borderwidth=0,fg="#a3e5ff", text='',background="#a3e5ff",state=DISABLED)
         button_6 = Button(fr1,width=70,height=7,borderwidth=0,fg="#000000", text='',background="#a3e5ff",state=DISABLED)
         button_7 = Button(fr1,width=70,height=7,borderwidth=0,fg="#a3e5ff", text='',background="#a3e5ff",state=DISABLED)
-        button_1.pack()
+        button_1.pack(fill=X)
         button_2.pack(fill=X)
         button_3.pack(fill=X)
         button_4.pack(fill=X)
