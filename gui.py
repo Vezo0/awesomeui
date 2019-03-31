@@ -114,6 +114,26 @@ def to_proctologist():
     label1 = Label(root, proctologist)
     label1.pack(side=TOP)
 
+def click_d2():
+    global diction, state
+    button_1.configure(text='Where hurts?', background="#a3e5ff",fg='black',borderwidth=0, state=DISABLED)
+    button_2.configure(text='Sides', background="#a3a5ff",fg='black',borderwidth=1,state="normal", command=to_cardiologist)
+    button_3.configure(text='Middle', background="#a3a5ff",fg='black',borderwidth=1,state="normal", command=to_surgeon)
+    button_4.configure(text='I dont know', background="#a3a5ff",fg='black',borderwidth=1, state="normal", command=to_surgeon)
+    button_5.configure(text='', background="#a3e5ff",fg='black',borderwidth=0, state=DISABLED)
+    button_6.configure(text='', background="#a3e5ff",fg="#a3e5ff",borderwidth=0,state=DISABLED)
+    button_7.configure(text='', background="#a3e5ff",borderwidth=0,state=DISABLED,fg="#a3e5ff")
+
+def click_d():
+    global diction, state
+    button_1.configure(text='Do you have a high preassure?', background="#a3e5ff",fg='black',borderwidth=0, state=DISABLED)
+    button_2.configure(text='Yes', background="#a3a5ff",fg='black',borderwidth=1,state="normal", command=to_cardiologist)
+    button_3.configure(text='No', background="#a3a5ff",fg='black',borderwidth=1,state="normal", command=to_surgeon)
+    button_4.configure(text='I dont know', background="#a3a5ff",fg='black',borderwidth=1, state="normal", command=click_d2)
+    button_5.configure(text='', background="#a3e5ff",fg='black',borderwidth=0, state=DISABLED)
+    button_6.configure(text='', background="#a3e5ff",fg="#a3e5ff",borderwidth=0,state=DISABLED)
+    button_7.configure(text='', background="#a3e5ff",borderwidth=0,state=DISABLED,fg="#a3e5ff")
+
 def click_f():
     global diction, state
     idx=3
@@ -124,8 +144,6 @@ def click_f():
     button_5.configure(text=diction[idx+4], background="#a3a5ff",fg='black',borderwidth=1,state="normal", command=click_s)
     button_6.configure(text='', background="#a3e5ff",fg="#a3e5ff",borderwidth=0,state=DISABLED)
     button_7.configure(text='', background="#a3e5ff",borderwidth=0,state=DISABLED,fg="#a3e5ff")
-    state.append(2)
-    print(state)
 
 def click_s():
     global diction, state, root
@@ -155,7 +173,7 @@ def click_h():
     global diction, state
     
     idx = 8
-    button_1.configure(text=diction[idx], background="#a3a5ff",fg='black',state="normal",command=to_surgeon)
+    button_1.configure(text=diction[idx], background="#a3a5ff",fg='black',state="normal",command=click_d)
     button_2.configure(text=diction[idx+1],background="#a3a5ff",fg='black',state="normal",command=to_therapist)
     button_3.configure(text=diction[idx+2],background="#a3a5ff",borderwidth=1,fg='black',state="normal",command=to_therapist)
     button_4.configure(text=diction[idx+3],background="#a3a5ff",borderwidth=1,fg='black',state="normal",command=to_stomatologist)
