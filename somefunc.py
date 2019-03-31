@@ -36,7 +36,6 @@ venerologist = 'You should go to venerologist. Please, select a suitable day and
         
 while True:
 
-    print(sex)
     enter = input()
     a.append(enter)
     
@@ -87,7 +86,7 @@ while True:
         print(proctologist)
         ex = 1
     elif a == ['female', 'chest', 'gullet', 'vagina']:
-        print(venerologist)
+        print(venerologist)  
         ex = 1
     if ex == 1:
         break
