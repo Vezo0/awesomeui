@@ -1,12 +1,9 @@
 from tkinter import *
-from bin.gui.menu import _menu
-import sys
+from bin.gui.menu import _menu as main
 
-if __name__ == "__main__":
-    _mod = sys.modules['gui'] = sys.modules[__name__]
 def _gui():
     root = Tk()
-    root.geometry('{}x{}'.format(1920, 5080))
+    root.geometry('{}x{}'.format(1920, 1080))
     root.configure(background= "#a3e5ff")
-    _menu(root)
+    main(root)
     root.mainloop()

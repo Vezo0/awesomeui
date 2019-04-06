@@ -1,9 +1,5 @@
 from bin.gui.alias import *
 from tkinter import *
-import sys
-
-if __name__ == "__main__":
-    _mod = sys.modules['helpdesk'] = sys.modules[__name__]
 
 global idx, diction, tg
 tg = 0
